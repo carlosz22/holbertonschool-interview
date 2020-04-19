@@ -11,7 +11,8 @@ def canUnlockAll(boxes):
         if (i not in keys and i != 0):
             return False
         for elem in boxes[i]:
-            keys.update(boxes[elem])
+            if elem < len(boxes):
+                keys.update(boxes[elem])
         keys.update(boxes[i])
 
     return True
