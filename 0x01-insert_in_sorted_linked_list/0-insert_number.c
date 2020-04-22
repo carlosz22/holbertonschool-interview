@@ -29,11 +29,12 @@ listint_t *insert_node(listint_t **head, int number)
 			current->next = new;
 			return (current);
 		}
-		else if (current->next == NULL)
+		if (current->next == NULL)
 		{
 			new->n = number;
 			new->next = NULL;
 			current->next = new;
+			break;
 		}
 		current = current->next;
 	}
