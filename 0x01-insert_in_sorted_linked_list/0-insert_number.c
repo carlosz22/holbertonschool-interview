@@ -13,7 +13,7 @@ listint_t *insert_node(listint_t **head, int number)
 	listint_t *new;
 	listint_t *current;
 
-	if (head == NULL || *head == NULL)
+	if (head == NULL)
 		return (NULL);
 
 	current = *head;
@@ -34,12 +34,13 @@ listint_t *insert_node(listint_t **head, int number)
 		}
 		if (current->next == NULL)
 		{
-			new->n = number;
-			new->next = NULL;
-			current->next = new;
-			break;
+			return (add_nodeint_end(head, number));
 		}
 		current = current->next;
 	}
+
+	new->n = number;
+	new->next = NULL;
+	*head = new;
 	return (new);
 }
