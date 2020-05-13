@@ -3,6 +3,7 @@
 Minimum Operations
 """
 
+
 def minOperations(n):
     """Minimum Operations"""
     oper = 0
