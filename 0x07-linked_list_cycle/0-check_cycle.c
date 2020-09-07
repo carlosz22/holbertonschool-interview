@@ -10,22 +10,23 @@
 
 int check_cycle(listint_t *list)
 {
-    listint_t *head;
-    listint_t *current;
+    listint_t *slow;
+    listint_t *fast;
 
     if (list == NULL)
-        return (NULL);
+        return 0;
 
-    head = list;
-    current = list;
+    slow = list;
+    fast = list->next;
 
-    while (current != NULL)
+    while (slow != NULL && fast != NULL && fast->next != NULL)
     {
-        if (current->next == head)
+        if (slow->n == fast->n)
         {
             return 1;
         }
-        current = current->next;
+        slow = slow->next;
+        fast = fast->next->next;
     }
     return 0;
 }
